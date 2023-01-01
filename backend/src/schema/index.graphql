@@ -1,0 +1,18 @@
+input LoginInput {
+    email: String!
+    password: String!
+}
+
+type User {
+    email: String!
+    password: String!
+    username: String!
+}
+
+type Mutation {
+    signUpUser(input: LoginInput!): User!
+}
+
+type Query {
+    sayHi: String!
+}
