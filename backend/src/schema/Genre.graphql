@@ -1,0 +1,26 @@
+# import IDInput, GetMoviesResponse from "./index.graphql"
+# import GetSeriesResponse from "./Series.graphql"
+
+type GetGenreResponse {
+    data: Genre
+    error: String
+    success: Boolean
+}
+type GetGenresResponse {
+    data: [Genre]!
+    error: String
+    success: Boolean
+}
+
+type Genre {
+    _id: ID!
+    title: String!
+    tmdb_id: String!
+    movies: GetMoviesResponse!
+    series: GetSeriesResponse!
+}
+
+type Query {
+    getGenre(input: IDInput!): GetGenreResponse
+    getGenres: GetGenresResponse
+}

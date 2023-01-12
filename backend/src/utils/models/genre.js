@@ -15,7 +15,7 @@ exports.createGenre = async (title, tmdb_id) => {
             success: false,
         };
     } finally {
-        console.log(response);
+        if (!response.success) console.log(response);
         return response;
     }
 };
@@ -32,15 +32,23 @@ exports.getGenres = async () => {
             success: false,
         };
     } finally {
-        console.log(response);
+        if (!response.success) console.log(response);
         return response;
     }
 };
 
 exports.getGenre = async (title = "", tmdb_id = "") => {
+    /**
+     * returns a genre based on title || tmdb_id provided
+     */
     let response = { data: {}, error: "", success: false };
     try {
-        let data = await Genre.findOne({ title, tmdb_id });
+        let data;
+        if (title) {
+            data = await Genre.findOne({ title });
+        } else if (tmdb_id) {
+            data = await Genre.findOne({ tmdb_id });
+        }
         response = { ...response, data, success: true };
     } catch (error) {
         response = {
@@ -49,7 +57,6 @@ exports.getGenre = async (title = "", tmdb_id = "") => {
             success: false,
         };
     } finally {
-        console.log(response);
         return response;
     }
 };

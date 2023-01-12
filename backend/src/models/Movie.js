@@ -15,6 +15,7 @@ const movieSchema = new Schema({
     title: {
         type: String,
         required: true,
+        unique: true,
     },
     genre: {
         type: [String],
@@ -28,9 +29,13 @@ const movieSchema = new Schema({
         type: String,
         required: true,
     },
+    release_date: {
+        type: String,
+        required: true,
+    },
     download_link: {
         type: String,
     },
 });
 
-module.exports = model("Movie", movieSchema);
+module.exports = { model: model("Movie", movieSchema), pictureSchema };

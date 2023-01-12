@@ -1,18 +1,15 @@
-input LoginInput {
-    email: String!
-    password: String!
+# import Movie from "./Movie.graphql"
+
+input IDInput {
+    _id: ID!
 }
 
-type User {
-    email: String!
-    password: String!
-    username: String!
+type GetMoviesResponse {
+    data: [Movie]!
+    error: String
+    success: Boolean
 }
-
-type Mutation {
-    signUpUser(input: LoginInput!): User!
-}
-
-type Query {
-    sayHi: String!
+type Picture {
+    thumbnail: String!
+    large: String!
 }

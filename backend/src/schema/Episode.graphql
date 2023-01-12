@@ -1,0 +1,29 @@
+# import IDInput from "./index.graphql"
+# import Season from "./Season.graphql"
+
+type Episode {
+    _id: ID!
+    count: Int!
+    title: String!
+    description: String
+    picture: String!
+    season_id: String!
+    series_id: String!
+    tmdb_id: String!
+    air_date: String!
+    season: Season!
+}
+type GetEpisodeResponse {
+    data: Episode
+    error: String!
+    success: Boolean!
+}
+type GetEpisodesResponse {
+    data: [Episode!]!
+    error: String!
+    success: Boolean!
+}
+type Query {
+    getEpisode(input: IDInput!): GetEpisodeResponse
+    getEpisodesBySeason(input: IDInput!): GetEpisodesResponse!
+}

@@ -4,9 +4,11 @@ const Router = require("express").Router();
 const {
     createUserController,
     loginUserController,
+    userGQLController,
 } = require("../controllers/userController");
 
-Router.post("/sign-up", createUserController);
-Router.post("/sign-in", loginUserController);
+Router.post("/auth/sign-up", createUserController)
+    .post("/auth/sign-in", loginUserController)
+    .post("/graphql/auth/user", userGQLController);
 
 module.exports = Router;

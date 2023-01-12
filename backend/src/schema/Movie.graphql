@@ -1,0 +1,24 @@
+# import GetMoviesResponse, IDInput, Picture from "./index.graphql"
+# import Genre from "./Genre.graphql"
+
+type GetMovieResponse {
+    data: Movie
+    error: String!
+    success: Boolean!
+}
+
+type Movie {
+    _id: ID!
+    title: String!
+    genre: [Genre]!
+    picture: Picture!
+    description: String!
+    release_date: String!
+    download_link: String
+}
+
+type Query {
+    getMovie(input: IDInput!): GetMovieResponse!
+    getMoviesByGenre(input: IDInput!): GetMoviesResponse!
+    # getTrendingMovies
+}

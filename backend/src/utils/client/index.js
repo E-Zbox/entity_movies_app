@@ -1,7 +1,5 @@
 const axios = require("axios");
 
-require("dotenv").config({ path: `.env.${process.env.NODE_ENV}` });
-
 const {
     env: { TMDB_API_KEY, TMDB_BASE_URL },
 } = process;

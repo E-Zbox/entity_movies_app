@@ -1,0 +1,34 @@
+# import IDInput, Picture from "./index.graphql"
+# import Season from "./Season.graphql"
+
+type Creator {
+    name: String!
+    profile: String
+}
+type GetSingleSeriesResponse {
+    data: Series
+    error: String!
+    success: Boolean!
+}
+type GetSeriesResponse {
+    data: [Series]!
+    error: String!
+    success: Boolean!
+}
+type Series {
+    _id: ID!
+    title: String!
+    description: String!
+    picture: Picture!
+    genre: [String!]!
+    last_season: Int!
+    tmdb_id: String!
+    first_air_date: String!
+    original_language: String!
+    created_by: [Creator!]
+    seasons: [Season!]!
+}
+type Query {
+    getSingleSeries(input: IDInput!): GetSingleSeriesResponse!
+    getSeriesByGenre(input: IDInput!): GetSeriesResponse!
+}

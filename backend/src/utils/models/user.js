@@ -8,8 +8,8 @@ const {
 // model
 const { User } = require("../../models");
 
-exports.checkForUser = async (_email) => {
-    let _user = await User.findOne({ _email });
+exports.checkForUser = async (email) => {
+    let _user = await User.findOne({ email });
     return _user;
 };
 
@@ -74,7 +74,7 @@ exports.hashPassword = async (_password, salt) => {
 
 exports.generateToken = (payload, secretKey) => {
     let token = jwt.sign(payload, secretKey, {
-        expiresIn: "2min",
+        expiresIn: "12h",
     });
     return token;
 };

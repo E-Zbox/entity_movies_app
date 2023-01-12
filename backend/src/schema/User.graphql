@@ -1,0 +1,43 @@
+input SignInInput {
+    email: String!
+    password: String!
+}
+input SignUpInput {
+    email: String!
+    password: String!
+    username: String!
+}
+
+type TokenResponse {
+    email: String!
+    username: String!
+    token: String!
+}
+type EmailUsernameResponse {
+    email: String!
+    username: String!
+}
+type SignInUserResponse {
+    data: TokenResponse
+    error: String!
+    success: Boolean!
+}
+type SignUpUserResponse {
+    data: EmailUsernameResponse
+    error: String!
+    success: Boolean!
+}
+type User {
+    _id: ID!
+    email: String!
+    password: String!
+    username: String!
+    logged_in_token: String
+}
+type Mutation {
+    signInUser(input: SignInInput!): SignInUserResponse!
+    signUpUser(input: SignUpInput!): SignUpUserResponse!
+}
+type Query {
+    sayHi: String!
+}

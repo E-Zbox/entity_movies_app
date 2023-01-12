@@ -16,7 +16,7 @@ const userSchema = new Schema({
     },
     logged_in_token: {
         type: String,
-        default: true,
+        default: "",
     },
 });
 

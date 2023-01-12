@@ -1,3 +1,8 @@
-exports.Genre = require("./Genre");
-exports.Movie = require("./Movie");
-exports.User = require("./User");
+module.exports = {
+    Episode: require("./Episode"),
+    Genre: require("./Genre"),
+    Movie: require("./Movie").model,
+    Season: require("./Season"),
+    Series: require("./Series"),
+    User: require("./User"),
+};
