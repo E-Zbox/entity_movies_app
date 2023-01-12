@@ -5,7 +5,7 @@
     "main": "index.js",
     "scripts": {
         "start": "node ./src/index",
-        "dev": "nodemon --trace-deprecation --trace-warnings ./src/app",
+        "dev": "nodemon --trace-deprecation --trace-warnings ./src/index",
         "test": "echo \"Error: no test specified\" && exit 1"
     },
     "keywords": [
@@ -15,6 +15,9 @@
     "author": "Ononogbu Ebenezer",
     "license": "ISC",
     "dependencies": {
+        "@graphql-tools/graphql-file-loader": "^7.5.13",
+        "@graphql-tools/load": "^7.8.8",
+        "@graphql-tools/merge": "^8.3.14",
         "@graphql-tools/schema": "^9.0.12",
         "axios": "^1.2.2",
         "bcryptjs": "^2.4.3",
