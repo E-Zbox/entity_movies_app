@@ -1,4 +1,4 @@
-// dependencies
+// _dependencies_
 const { graphqlHTTP } = require("express-graphql");
 const { GraphQLFileLoader } = require("@graphql-tools/graphql-file-loader");
 const { loadSchemaSync } = require("@graphql-tools/load");

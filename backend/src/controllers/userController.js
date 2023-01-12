@@ -118,6 +118,6 @@ exports.loginUserController = async (req, res, next) => {
             response: { token },
         });
     } catch (error) {
-        next(error);
+        next(error)
     }
 };
